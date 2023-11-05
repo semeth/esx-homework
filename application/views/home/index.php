@@ -49,6 +49,6 @@
             <?php echo form_close(); ?>
         </div>
     </div>
-    <div class="login-errors position-absolute sticky-top"><?php echo (isset($error_message)) ? $errot_message : ''; ?></div>
+    <div class="login-errors position-absolute sticky-top"><?php echo (isset($error_message)) ? $error_message : ''; ?></div>
 </div>
 <?php $this->load->view('common/footer'); ?>
