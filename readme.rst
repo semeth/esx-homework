@@ -14,13 +14,15 @@ Step 3: Test the project accessing the default url you've set up on step 1
 ######################
 API Functionality
 ######################
-In order to get users JSON, use /api/users/id where id is the user's id in DB
+In order to get all users, use /api/users
 
-In order to soft delete a user use /api/soft_delete/id where id is the user's id in DB
+In order to get specific user, use /api/users/id where id is the user's id in DB
 
-In order to reactivate a user use /api/reactivate/id where id is the user's id in DB
+In order to soft delete a user, use /api/soft_delete/id where id is the user's id in DB
 
-In order to hard delete a user use /api/hard_delete/id where id is the user's id in DB
+In order to reactivate a user, use /api/reactivate/id where id is the user's id in DB
+
+In order to hard delete a user, use /api/hard_delete/id where id is the user's id in DB
 
 ######################
 SQL Data
