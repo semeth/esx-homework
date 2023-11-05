@@ -77,15 +77,19 @@ class Account extends CI_Controller{
 
 			if($email){
                 if(password_verify($password, $user->password)){
-                    $data = array(
-                        'id'        => $user->id,
-                        'name'      => $user->firstname . ' ' . $user->lastname,
-                        'email'     => $user->email,
-                        'logged_in' => true
-                    );
-    
-                    $this->session->set_userdata($data);
-                    echo 'ok';
+                    if($user->flagged == 1){
+                        echo 'This account is currently deleted. Please contact an admin to restore data.';
+                    }else{
+                        $data = array(
+                            'id'        => $user->id,
+                            'name'      => $user->firstname . ' ' . $user->lastname,
+                            'email'     => $user->email,
+                            'logged_in' => true
+                        );
+        
+                        $this->session->set_userdata($data);
+                        echo 'ok';
+                    }
                 }else{
                     echo 'Email or password are wrong.';
                 }

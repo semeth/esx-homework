@@ -11,7 +11,6 @@ $('body').on('click', '.form-action', function(){
         er.removeClass('alert alert-danger');
         er.html('');
         data = $(this).serializeArray();
-        // console.log(data);
         $.ajax({
             url: $(this).attr('action'),
             type: 'POST',
@@ -39,7 +38,6 @@ $('body').on('click', '.form-action', function(){
             type: 'POST',
             data: data,
             success: function(data){
-                console.log(data);
                 if(data == 'ok'){
                     $('.login-errors').html('You are now logged in');
                     $('.login-errors').addClass('alert alert-success');

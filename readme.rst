@@ -1,70 +1,57 @@
-###################
-What is CodeIgniter
-###################
+######################
+ESX Homwwork Project
+######################
 
-CodeIgniter is an Application Development Framework - a toolkit - for people
-who build web sites using PHP. Its goal is to enable you to develop projects
-much faster than you could if you were writing code from scratch, by providing
-a rich set of libraries for commonly needed tasks, as well as a simple
-interface and logical structure to access these libraries. CodeIgniter lets
-you creatively focus on your project by minimizing the amount of code needed
-for a given task.
+Step 1: Adjust application/config/config.php on line 26 with your path for the project
 
-*******************
-Release Information
-*******************
+Step 2: Process the SQL data before testing the project and don't forget to adjust application/config/database.php with your credentials. SQL provided bellow.
 
-This repo contains in-development code for future releases. To download the
-latest stable release please visit the `CodeIgniter Downloads
-<https://codeigniter.com/download>`_ page.
+Step 3: Test the project accessing the default url you've set up on step 1
 
-**************************
-Changelog and New Features
-**************************
 
-You can find a list of all changes for each release in the `user
-guide change log <https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/changelog.rst>`_.
+######################
+API Functionality
+######################
+In order to get users JSON, use /api/users/id where id is the user's id in DB
+In order to soft delete a user use /api/soft_delete/id where id is the user's id in DB
+In order to reactivate a user use /api/reactivate/id where id is the user's id in DB
+In order to hard delete a user use /api/hard_delete/id where id is the user's id in DB
 
-*******************
-Server Requirements
-*******************
+######################
+SQL Data
+######################
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
 
-PHP version 5.6 or newer is recommended.
 
-It should work on 5.3.7 as well, but we strongly advise you NOT to run
-such old versions of PHP, because of potential security and performance
-issues, as well as missing features.
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
-************
-Installation
-************
+--
+-- Database: `esx`
+--
 
-Please see the `installation section <https://codeigniter.com/user_guide/installation/index.html>`_
-of the CodeIgniter User Guide.
+-- --------------------------------------------------------
 
-*******
-License
-*******
+--
+-- Table structure for table `users`
+--
 
-Please see the `license
-agreement <https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/license.rst>`_.
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `firstname` varchar(16) NOT NULL,
+  `lastname` varchar(16) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `email` varchar(64) NOT NULL,
+  `flagged` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
 
-*********
-Resources
-*********
-
--  `User Guide <https://codeigniter.com/docs>`_
--  `Language File Translations <https://github.com/bcit-ci/codeigniter3-translations>`_
--  `Community Forums <http://forum.codeigniter.com/>`_
--  `Community Wiki <https://github.com/bcit-ci/CodeIgniter/wiki>`_
--  `Community Slack Channel <https://codeigniterchat.slack.com>`_
-
-Report security issues to our `Security Panel <mailto:security@codeigniter.com>`_
-or via our `page on HackerOne <https://hackerone.com/codeigniter>`_, thank you.
-
-***************
-Acknowledgement
-***************
-
-The CodeIgniter team would like to thank EllisLab, all the
-contributors to the CodeIgniter project and you, the CodeIgniter user.
+INSERT INTO `users` (`id`, `firstname`, `lastname`, `password`, `email`, `flagged`) VALUES
+(17, 'Yos', 'ESX', '$2y$10$Agj3jFUEt/fOcfal.bylJOB8kvfx2SPROXknar9VGZxqlMF8.bznS', 'yos@esx.com', 0),
+(18, 'Andrei', 'Dumitru', '$2y$10$Wzy1ZGU1lM1RX2jaq5ZQV.fzJzxEcMu1qvI.F.mxCsLKLfyposOMu', 'thesemeth@gmail.com', 1);
+COMMIT;

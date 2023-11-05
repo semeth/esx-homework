@@ -26,11 +26,14 @@ class Api extends CI_Controller{
         }
     }
 
+    // Soft deletion. To process, use /api/soft_delete/id where id is the user's id in the database
     public function soft_delete($id){
         $this->api_model->delete_soft_delete($id);
         echo json_encode(['message' => 'user with id ' . $id . ' is now softly deleted']);
     }
 
+
+    // Reactivate user. To process, use /api/reactivate/id where id is the user's id in the database
     public function reactivate($id){
         $this->api_model->activate_soft_delete($id);
         echo json_encode(['message' => 'user with id ' . $id . ' is now reactivated']);
