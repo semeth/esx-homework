@@ -1,0 +1,31 @@
+body{
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+.page-container{
+    height: calc(100vh - 56px);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.login-form,
+.register-form{
+    display: none;
+    width: 400px;
+    max-width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 5px 10px -3px #808080;
+}
+.login-form.active,
+.register-form.active{
+    display: block;
+}
+.form-container{
+    height: 560px;
+}
